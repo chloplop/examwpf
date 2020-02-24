@@ -22,9 +22,17 @@
     <Grid>
         <DockPanel >
             <Menu DockPanel.Dock="Top"  >
-                <MenuItem  Header="Fichier" ></MenuItem>
-                <MenuItem    Header="Édition"></MenuItem>
-                <MenuItem   Header="Affichage"></MenuItem>
+                <MenuItem  Header="_Fichier" >
+                    <MenuItem  Header="Ouvrir.."></MenuItem>
+                    <MenuItem  Header="Sauvegarder"></MenuItem>
+                    <MenuItem  Header="Fermer"></MenuItem>
+                    <MenuItem  Header="Nouveau client"></MenuItem>
+                    <MenuItem  Header="Quitter"></MenuItem>
+                </MenuItem>
+                <MenuItem    Header="_Édition"></MenuItem>
+                <MenuItem   Header="_Affichage">
+                   
+                </MenuItem>
             </Menu>
             <StatusBar DockPanel.Dock="Bottom">
                 <TextBlock>Client sélectionné :</TextBlock>
