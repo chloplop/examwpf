@@ -8,6 +8,17 @@
         mc:Ignorable="d"
         Title="Gestion de clients" Height="450" Width="800"
          DataContext="{Binding RelativeSource={RelativeSource self}}">
+    <Window.Resources>
+
+        <DataTemplate  x:Key="CustomersTemplate" DataType="{x:Type other:Customer}">
+            <WrapPanel>
+                <TextBlock Text="{Binding LastName}"/>
+                <TextBlock >, </TextBlock>
+                <TextBlock Text="{Binding Name}" />
+            </WrapPanel>
+        </DataTemplate>
+    </Window.Resources>
+    
     <Grid>
         <DockPanel >
             <Menu DockPanel.Dock="Top"  >
@@ -17,7 +28,9 @@
             </Menu>
             <StatusBar DockPanel.Dock="Bottom">
                 <TextBlock>Client sélectionné :</TextBlock>
-                <TextBlock></TextBlock>
+                <TextBlock Text="{Binding CurrentCustomer.LastName}"></TextBlock>
+                <TextBlock >,</TextBlock>
+                <TextBlock Text="{Binding CurrentCustomer.Name}" />
             </StatusBar>
             <WrapPanel DockPanel.Dock="Top">
                 <Label>Liste des clients</Label>
@@ -29,7 +42,10 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <ListView Grid.Column="0" Height="auto">
+                <ListView Grid.Column="0" Height="auto"  ItemTemplate="{StaticResource CustomersTemplate}" 
+                 ItemsSource="{Binding Customers}" 
+                          SelectedItem="{Binding CurrentCustomer}" SelectionChanged="ListView_SelectionChanged"
+                          ScrollViewer.VerticalScrollBarVisibility="Auto">
                     
                 </ListView>
                 <Grid Grid.Column="1" Grid.ColumnSpan="2">
@@ -62,15 +78,15 @@
                         <Label Grid.Row="2" Grid.Column="0">Ville :</Label>
                         <Label Grid.Row="3" Grid.Column="0">Code postal:</Label>
                         <Label Grid.Row="4" Grid.Column="0">Contact :</Label>
-                        <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="5"  Text="{Binding Name}"></TextBox>
-                        <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Margin="5"  Text="{Binding Adress}"></TextBox>
-                        <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Margin="5"  Text="{Binding City}"></TextBox>
-                        <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="5"  Text="{Binding PostalCode}"></TextBox>
-                        <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" Margin="5"  Text="{Binding ContactInfo}"></TextBox>
+                        <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="5"  Text="{Binding CurrentCustomer.Name}"></TextBox>
+                        <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Margin="5"  Text="{Binding CurrentCustomer.Address}"></TextBox>
+                        <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Margin="5"  Text="{Binding CurrentCustomer.City}"></TextBox>
+                        <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="5"  Text="{Binding CurrentCustomer.PostalCode}"></TextBox>
+                        <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" Margin="5"  Text="{Binding CurrentCustomer.ContactInfo}"></TextBox>
                         <Label Grid.Row="0" Grid.Column="4" >Nom :</Label>
-                        <TextBox Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="2" Margin="5"  Text="{Binding LastName}"></TextBox>
+                        <TextBox Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="2" Margin="5"  Text="{Binding CurrentCustomer.LastName}"></TextBox>
                         <Label Grid.Row="2" Grid.Column="4">Province :</Label>
-                        <TextBox Grid.Row="2" Grid.Column="5"  Margin="5"  Text="{Binding Province}"></TextBox>
+                        <TextBox Grid.Row="2" Grid.Column="5"  Margin="5"  Text="{Binding CurrentCustomer.Province}"></TextBox>
                         <Button Grid.Row="5" Grid.Column="4" Margin="5" Grid.ColumnSpan="3">Supprimer client</Button>
                     </Grid>
                     <Grid Grid.Row="1">
@@ -78,7 +94,7 @@
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <Image Grid.Column="0"></Image>
+                        <Image Grid.Column="0" Source="{Binding CurrentCustomer.PicturePath}" ></Image>
                     </Grid>
                 </Grid>
             </Grid>
