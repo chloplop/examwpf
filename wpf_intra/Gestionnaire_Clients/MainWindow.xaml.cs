@@ -54,6 +54,14 @@ namespace Gestionnaire_Clients
             CurrentCustomer = (Customer)lv.SelectedItem;
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            CurrentCustomer = new Customer();
+            CurrentCustomer.PicturePath = "images/user.png";
+            Customers.Add(CurrentCustomer);
+           
+        }
+
         private void initValues()
         {
             Customers.Add(new Customer { Name = "Ayanna", LastName = "Vargas", Address = "401-3122 Nullam Ave", City = "Pickering", Province = "ON", PostalCode = "N6C 7M5", PicturePath = "images/user.png", ContactInfo = "Work : 624-767-4994" });

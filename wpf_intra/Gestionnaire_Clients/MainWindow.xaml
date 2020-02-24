@@ -26,7 +26,7 @@
                     <MenuItem  Header="Ouvrir.."></MenuItem>
                     <MenuItem  Header="Sauvegarder"></MenuItem>
                     <MenuItem  Header="Fermer"></MenuItem>
-                    <MenuItem  Header="Nouveau client"></MenuItem>
+                    <MenuItem  Header="Nouveau client" Click="Button_Click"></MenuItem>
                     <MenuItem  Header="Quitter"></MenuItem>
                 </MenuItem>
                 <MenuItem    Header="_Édition"></MenuItem>
@@ -42,7 +42,7 @@
             </StatusBar>
             <WrapPanel DockPanel.Dock="Top">
                 <Label>Liste des clients</Label>
-                <Button Margin="5">Nouveau client</Button>
+                <Button Margin="5" Click="Button_Click">Nouveau client</Button>
             </WrapPanel>
             <Grid>
                 <Grid.ColumnDefinitions>
