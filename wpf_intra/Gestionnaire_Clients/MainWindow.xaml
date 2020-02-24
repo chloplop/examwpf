@@ -5,8 +5,83 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Gestionnaire_Clients"
         mc:Ignorable="d"
-        Title="Gestion de clients" Height="450" Width="800">
+        Title="Gestion de clients" Height="450" Width="800"
+         DataContext="{Binding RelativeSource={RelativeSource self}}">
     <Grid>
-
+        <DockPanel >
+            <Menu DockPanel.Dock="Top"  >
+                <MenuItem  Header="Fichier" ></MenuItem>
+                <MenuItem    Header="Édition"></MenuItem>
+                <MenuItem   Header="Affichage"></MenuItem>
+            </Menu>
+            <StatusBar DockPanel.Dock="Bottom">
+                <TextBlock>Client sélectionné :</TextBlock>
+                <TextBlock></TextBlock>
+            </StatusBar>
+            <WrapPanel DockPanel.Dock="Top">
+                <Label>Liste des clients</Label>
+                <Button Margin="5">Nouveau client</Button>
+            </WrapPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <ListView Grid.Column="0" Height="auto">
+                    
+                </ListView>
+                <Grid Grid.Column="1" Grid.ColumnSpan="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            
+                        
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0">Prénom :</Label>
+                        <Label Grid.Row="1" Grid.Column="0">Adress :</Label>
+                        <Label Grid.Row="2" Grid.Column="0">Ville :</Label>
+                        <Label Grid.Row="3" Grid.Column="0">Code postal:</Label>
+                        <Label Grid.Row="4" Grid.Column="0">Contact :</Label>
+                        <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="5"></TextBox>
+                        <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Margin="5"></TextBox>
+                        <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Margin="5"></TextBox>
+                        <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="5"></TextBox>
+                        <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" Margin="5"></TextBox>
+                        <Label Grid.Row="0" Grid.Column="4">Noml :</Label>
+                        <TextBox Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="2" Margin="5"></TextBox>
+                        <Label Grid.Row="2" Grid.Column="4">Province :</Label>
+                        <TextBox Grid.Row="2" Grid.Column="5"  Margin="5"></TextBox>
+                        <Button Grid.Row="5" Grid.Column="4" Margin="5" Grid.ColumnSpan="3">Supprimer client</Button>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0"></Image>
+                    </Grid>
+                </Grid>
+            </Grid>
+            
+        </DockPanel>
     </Grid>
 </Window>
