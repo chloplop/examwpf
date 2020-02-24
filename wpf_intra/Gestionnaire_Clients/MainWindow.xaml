@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Gestionnaire_Clients"
+        xmlns:other="clr-namespace:intra_models;assembly=intra_models"
         mc:Ignorable="d"
         Title="Gestion de clients" Height="450" Width="800"
          DataContext="{Binding RelativeSource={RelativeSource self}}">
@@ -61,15 +62,15 @@
                         <Label Grid.Row="2" Grid.Column="0">Ville :</Label>
                         <Label Grid.Row="3" Grid.Column="0">Code postal:</Label>
                         <Label Grid.Row="4" Grid.Column="0">Contact :</Label>
-                        <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="5"></TextBox>
-                        <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Margin="5"></TextBox>
-                        <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Margin="5"></TextBox>
-                        <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="5"></TextBox>
-                        <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" Margin="5"></TextBox>
-                        <Label Grid.Row="0" Grid.Column="4">Noml :</Label>
-                        <TextBox Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="2" Margin="5"></TextBox>
+                        <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="5"  Text="{Binding Name}"></TextBox>
+                        <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Margin="5"  Text="{Binding Adress}"></TextBox>
+                        <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Margin="5"  Text="{Binding City}"></TextBox>
+                        <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="5"  Text="{Binding PostalCode}"></TextBox>
+                        <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" Margin="5"  Text="{Binding ContactInfo}"></TextBox>
+                        <Label Grid.Row="0" Grid.Column="4" >Nom :</Label>
+                        <TextBox Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="2" Margin="5"  Text="{Binding LastName}"></TextBox>
                         <Label Grid.Row="2" Grid.Column="4">Province :</Label>
-                        <TextBox Grid.Row="2" Grid.Column="5"  Margin="5"></TextBox>
+                        <TextBox Grid.Row="2" Grid.Column="5"  Margin="5"  Text="{Binding Province}"></TextBox>
                         <Button Grid.Row="5" Grid.Column="4" Margin="5" Grid.ColumnSpan="3">Supprimer client</Button>
                     </Grid>
                     <Grid Grid.Row="1">
