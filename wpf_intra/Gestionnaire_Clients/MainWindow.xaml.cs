@@ -23,6 +23,7 @@ namespace Gestionnaire_Clients
     /// </summary>
     public partial class MainWindow : Window , INotifyPropertyChanged
     {
+        private int listviewindex;
         public MainWindow()
         {
             InitializeComponent();
@@ -51,6 +52,7 @@ namespace Gestionnaire_Clients
            SelectionChangedEventArgs e)
         {
             ListView lv = (ListView)sender;
+            listviewindex = lv.SelectedIndex;
             CurrentCustomer = (Customer)lv.SelectedItem;
         }
 
@@ -60,6 +62,25 @@ namespace Gestionnaire_Clients
             CurrentCustomer.PicturePath = "images/user.png";
             Customers.Add(CurrentCustomer);
            
+        }
+
+        private void Button_Del(object sender, RoutedEventArgs e)
+        {
+            Customer temp;
+            temp = CurrentCustomer;
+            if (listviewindex == 0)
+            {
+                CurrentCustomer = Customers[listviewindex + 1];
+            }
+            else
+            {
+                CurrentCustomer = Customers[listviewindex - 1];
+            }
+            Customers.Remove(temp);
+           
+            
+            
+
         }
 
         private void initValues()
